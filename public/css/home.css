@@ -1,5 +1,12 @@
 #big-container {
   height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.container {
+  flex-grow: 1;
+  flex-basis: 300px;
 }
 .min_pict {
   height: 32%;
@@ -7,3 +14,26 @@
 .max_pict {
   height: 68%;
 }
+
+.container > div {
+  width: 100%;
+}
+
+.container img {
+  width: 100%;
+}
+/* #pict_otd {
+  background-color: blueviolet;
+}
+
+#drink_otd {
+  background-color: blue;
+}
+
+#sentence_otd {
+  background-color: aqua;
+}
+
+#recipe_otd {
+  background-color: brown;
+} */
