@@ -1,0 +1,17 @@
+@import "./sidebar.css";
+@import "./home.css";
+
+/*importer les differentes pages css*/
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.78;
+  color: #555;
+  background-color: #fff;
+  margin: 0;
+}
+
+#body-container {
+  height: 100vh;
+  padding-left: 300px;
+}
