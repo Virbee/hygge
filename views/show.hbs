@@ -1,24 +1,26 @@
 <section id="show-container">
   <div class="show-description">
-    <h1>Saumon gravlax</h1>
-    <h3>Invitez des amis pour partager cette recette typiquement suédoise</h3>
+    <h1>{{recipe.name}}</h1>
+    <h3>{{recipe.description}}</h3>
   </div>
   <div class="show-img">
-    <img alt="dish-pic" src="/media/img-14.jpg">
-    <p>Temps de préparation : 15min</p>
+    <img alt="dish-pic" src="{{recipe.img}}">
+    <p>Temps de préparation : {{recipe.preparationTime}}min</p>
   </div>
   <div class="show-ingredients">
     <h3>Ingredients</h3>
     <ul>
-      <li>saumon</li>
-      <li>citron</li>
+      {{#each recipe.ingredients}}
+      <li>{{this}}</li>
+      {{/each}}
     </ul>
   </div>
   <div class="show-methods">
     <h3>Methods</h3>
     <ul>
-      <li>couper</li>
-      <li>manger</li>
+      {{#each recipe.instructions}}
+      <li>{{this}}</li>
+      {{/each}}
     </ul>
 
   </div>

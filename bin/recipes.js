@@ -1,9 +1,9 @@
-const recipe = [
+module.exports = [
   {
     img: "/media/brioche.jpg",
-    name: "Kanelsnurrers, cinnamon sweet buns",
+    name: "Kanelsnurrers | Cinnamon sweet buns",
     description:
-      "a share moment, cook with your familly then appreciate the tasting...",
+      "A share moment : cook with your family then appreciate the tasting...",
     ingredients: [
       "For the sweet buns :",
       "½ cup plus 1 tablespoon (125 g) butter",
@@ -36,13 +36,13 @@ const recipe = [
     ],
     category: ["teatime", "breakfast"],
     preparationTime: 40,
-    season: ["winter"]
+    season: ["Winter"]
   },
   {
     img: "/media/gravlax.jpg",
     name: " Gravlax Salmon",
     description:
-      "Cook your dinner, open a good bottle of wine, a simple pleasure...",
+      "Cook your dinner, open a good bottle of wine. A simple pleasure...",
     ingredients: [
       "1 tbsp white peppercorns (whole) ",
       "1 cup fresh dill, roughly chopped ",
@@ -64,21 +64,21 @@ const recipe = [
       "Slice thinly on an angle, do not cut through skin (i.e. don't eat skin). Serve with toasted bread, Mustard Sauce, extra dill and lemon wedges."
     ],
     category: ["dish"],
-    preparationTime: 1020,
+    preparationTime: 40,
     season: ["Spring", "Summer"]
   },
   {
     img: "/media/crackers.jpg",
     name: "Knækbrød",
     description:
-      "Prepare an appetizer, invite friends and forget about phone connexion, it's time to play board games",
+      "Prepare an appetizer, invite friends and forget about phone connexion, it's time to play board games.",
     ingredients: [
-      "150g of (organic) spelt flour",
-      "150g of (organic) corn flour",
-      "100g of (organic) sunflower seeds",
-      "1tbs of (organic) black sesame seeds",
-      "50g of (organic) pumpkin seeds",
-      "50ml of (organic) olive oil",
+      "150g of spelt flour",
+      "150g of corn flour",
+      "100g of sunflower seeds",
+      "1tbs of black sesame seeds",
+      "50g of pumpkin seeds",
+      "50ml of olive oil",
       "300 ml of boiling water",
       "1 tsp salt"
     ],
@@ -90,7 +90,7 @@ const recipe = [
       "Once done, carefully peel the parchment paper off the top of the mixture and place the baking trays in the oven.",
       "Bake at 150C/130C Fan/300F for about 60-75 minutes (depends on your oven) or until it's nice and crunchy and you can easily snap a piece off"
     ],
-    category: ["Starter"],
+    category: ["starter"],
     preparationTime: 20,
     season: ["Spring", "Summer"]
   },
@@ -115,7 +115,7 @@ const recipe = [
     ],
     category: ["desert"],
     preparationTime: 25,
-    season: ["fall", "winter"]
+    season: ["Fall", "Winter"]
   },
   {
     img: "/media/sableNoel.jpg",
@@ -148,11 +148,11 @@ const recipe = [
       "Cut off a piece of the room temperature dough and transfer to one sheet of parchment paper of a similar size as your baking sheet (you'll be using this to bake on and will save a step in transferring the individual shapes!). Sprinkle a bit of bench flour over the parchment paper and cover with another sheet of the same size. Roll out the dough between the parchment paper sheets to about 1/8-inch thickness.",
       "Remove the top sheet and use your favorite cookie cutters to cut out desired shapes (lightly dipping the cutters in flour every couple of cookies helps prevent sticking). Try to use cookie cutters of a similar size for each batch to keep baking times uniform. Remove the scraps, leaving just the final shapes behind.",
       "Transfer this parchment paper sheet with the cut out shapes onto a baking sheet. Bake in the middle of the oven for about 8 to 10 minutes until lightly golden, keeping a close eye so that they don't burn (start checking at 7 minutes).",
-      "12.	Remove from oven and let cool on racks completely before storing in an airtight container (they can last a few weeks, but they never make it that far in our house!). Best enjoyed with milk, coffee, or glögg (Swedish mulled wine)."
+      "Remove from oven and let cool on racks completely before storing in an airtight container (they can last a few weeks, but they never make it that far in our house!). Best enjoyed with milk, coffee, or glögg (Swedish mulled wine)."
     ],
     category: ["teatime"],
     preparationTime: 40,
-    season: ["winter"]
+    season: ["Winter"]
   },
   {
     img: "/media/chocochaud.jpg",
@@ -168,7 +168,7 @@ const recipe = [
       "1/2 teaspoon vanilla extract"
     ],
     instructions: [
-      "for 2/3 cups",
+      "For 2/3 cups",
       "Chop or grind chocolate into small pieces.",
       "Add the sugar and cornstarch.",
       "Put the milk into the pot and cook over medium heat until barely simmering, stirring occasionally.",
@@ -176,12 +176,12 @@ const recipe = [
     ],
     category: ["breakfast", "teatime", "drink"],
     preparationTime: 5,
-    season: ["fall", "winter"]
+    season: ["Fall", "Winter"]
   },
   {
     img: "/media/juspomme.jpg",
     name: "Hot Apple juice with Spices",
-    description: "",
+    description: "Invite your friends and share this warm beverage...",
     ingredients: [
       "4 cinnamon sticks",
       "1/8 teaspoon ground cloves",
@@ -196,9 +196,9 @@ const recipe = [
       "Place cinnamon sticks, ground cloves, allspice berries, orange peel, and lemon peel in a medium saucepan.",
       "Mix in the marple syrup and apple juice, then bring to almost a boil. Reduce the heat to low  and simmer for 30 minutes."
     ],
-    category: ["drink"],
+    category: ["drink", "teatime"],
     preparationTime: 10,
-    season: ["fall", "winter"]
+    season: ["Fall", "Winter"]
   },
   {
     img: "/media/eaurhubarbe.jpg",
@@ -208,10 +208,10 @@ const recipe = [
     ingredients: ["500 g of rhubarb", "150 g of sugar", "1 glass of water"],
     instructions: [
       "For 1 liter",
-      "wash and cut rhubarb sticks, leave the skin on",
+      "Wash and cut rhubarb sticks, leave the skin on",
       "During an hour, put the rhubarb and sugar together in a bol",
       "Add boil water to the sugar and rhubarb mixand leave it during 24 hours",
-      "after 24 hours, filter the water and take off the rhubarb, you should have a nnice pink color.",
+      "After 24 hours, filter the water and take off the rhubarb, you should have a nnice pink color.",
       "It has to be really fresh !"
     ],
     category: ["drink"],
