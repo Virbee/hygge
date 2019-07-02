@@ -1,5 +1,6 @@
 @import "./sidebar.css";
 @import "./home.css";
+@import "./forms.css";
 
 /*importer les differentes pages css*/
 body {
