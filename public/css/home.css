@@ -34,44 +34,30 @@
   height: 325px;
 }
 
-.pict-hovered {
+.home-pict {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
-.pict-hovered span {
-  padding: 0 0.25em; /* un peu d'espace latéral */
-  color: #555; /* couleur du texte à ajuster suivant le besoin */
-  background-color: rgba(255, 255, 255, 0.6);
-  transition: opacity 1s linear;
-  opacity: 0;
+.home-pict span {
+  padding: 0.25em;
+  color: #555;
+  background-color: rgba(255, 255, 255, 0.7);
   height: 80%;
   width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* left: 2em; */
 }
 
-.pict-hovered:hover span {
-  opacity: 1;
-  left: 2em;
-}
-
-.pict-hovered h1 {
-  text-align: center;
-}
-.pict-hovered {
-  text-align: center;
-}
-
-.pict-hovered li {
-  text-align: start;
-}
-
-.pict-hovered a {
+.home-pict a {
   text-decoration: none;
   color: #555;
+}
+
+.home-pict li {
+  text-align: start;
 }

@@ -1,0 +1,24 @@
+#show-container {
+  margin: 20px;
+}
+
+.show-description h1 {
+  color: #555555;
+  font-size: 3em;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.show-description h3 {
+  font-size: 1em;
+  margin: 0;
+}
+
+.show-img img {
+  width: 70%;
+  margin: 10px 0px;
+}
+
+.show-img p {
+  margin: 0;
+}

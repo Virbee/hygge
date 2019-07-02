@@ -1,0 +1,62 @@
+<div class="big-container product-manage-wrapper flexed-item">
+  <form method="post" action="./edit_elements" class="add-recipe-form">
+    <h3 class="form-title">Edit a recipe</h3>
+    <div class="form-item-wrapper flexed-item">
+      <label for="recipe-name" class="label-name label">Name</label>
+      <input type="text" class="input-text input" placeholder="chocolate cake" name="name">
+    </div>
+    <div class="form-item-wrapper flexed-item">
+      <label for="recipe-img" class="label-image label">Image</label>
+      <input type="file" class="input-img input" name="img">
+      {{!-- ajouter une image src --}}
+    </div>
+    <div class="form-item-wrapper flexed-item">
+      <label for="recipe-ingredients" class="label-ingredients label">Ingredients</label>
+      <input type="text" class="input-text input" placeholder="butter" name="ingredients">
+    </div>
+    <div class="form-item-wrapper flexed-item">
+      <label for="recipe-instructions" class="label-instructions label">Methods</label>
+      <textarea name="instructions" id="recipe-instructions" placeholder="bake 30 minutes in the oven" cols="30"
+        rows="10"></textarea>
+    </div>
+
+    {{!------------------------------- category ----------------------------------}}
+    <fieldset class="form-item-wrapper flexed-item">
+      <legend>Category</legend>
+      <div>
+        <input type="checkbox" class="input-text input" name="category" id="breakfast" value="breakfast">
+        <label for="breakfast" class="label-cat label">breakfast</label>
+      </div>
+      <div>
+        <input type="checkbox" class="input-text input" name="category" id="desert" value="desert">
+        <label for="desert" class="label-cat label">desert</label>
+      </div>
+      <div><input type="checkbox" class="input-text input" name="category" id="dish" value="dish">
+        <label for="dish" class="label-cat label">dish</label></div>
+      <div><input type="checkbox" class="input-text input" name="category" id="drink" value="drink">
+        <label for="drink" class="label-cat label">drink</label></div>
+      <div><input type="checkbox" class="input-text input" name="category" id="starter" value="starter">
+        <label for="starter" class="label-cat label">starter</label></div>
+      <div><input type="checkbox" class="input-text input" name="category" id="teatime" value="teatime">
+        <label for="teatime" class="label-cat label">teatime</label></div>
+    </fieldset>
+    {{!------------------------------------------------------------------------ --}}
+    <div class="form-item-wrapper flexed-item">
+      <label for="preparation-time" class="label-prep label">preparation-time</label>
+      <input type="number" class="input-number input" placeholder="less than an hour preparation"
+        name="preparation-time">
+    </div>
+    {{!---------------------------- seasons ---------------------------------------}}
+
+    <fieldset class="form-item-wrapper flexed-item">
+      <legend>Season</legend>
+      <div><input type="checkbox" class="input-text input" name="season" id="Spring" value="Spring">
+        <label for="Spring" class="label-cat label">Spring</label></div>
+      <div><input type="checkbox" class="input-text input" name="season" id="Summer" value="Summer">
+        <label for="Summer" class="label-cat label">Summer</label></div>
+      <div><input type="checkbox" class="input-text input" name="season" id="Fall" value="Fall">
+        <label for="Fall" class="label-cat label">Fall</label></div>
+      <div><input type="checkbox" class="input-text input" name="season" id="Winter" value="Winter">
+        <label for="Winter" class="label-cat label">Winter</label></div>
+    </fieldset>
+  </form>
