@@ -158,7 +158,7 @@ module.exports = [
     img: "/media/chocochaud.jpg",
     name: "Hot Chocolate",
     description:
-      "Next to the fireplace, take place under your duvet... and have an Hot Chocolate",
+      "Next to the fireplace, take place under your duvet... and have a Hot Chocolate",
     ingredients: [
       "3 ounces milk chocolate",
       "3 ounces bittersweet chocolate",
