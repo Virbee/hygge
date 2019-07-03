@@ -36,7 +36,7 @@ const recipe = [
     ],
     category: ["teatime", "breakfast"],
     preparationTime: 40,
-    season: ["winter"]
+    season: ["Winter"]
   },
   {
     img: "/media/gravlax.jpg",
@@ -90,7 +90,7 @@ const recipe = [
       "Once done, carefully peel the parchment paper off the top of the mixture and place the baking trays in the oven.",
       "Bake at 150C/130C Fan/300F for about 60-75 minutes (depends on your oven) or until it's nice and crunchy and you can easily snap a piece off"
     ],
-    category: ["Starter"],
+    category: ["starter"],
     preparationTime: 20,
     season: ["Spring", "Summer"]
   },
@@ -158,7 +158,7 @@ const recipe = [
     img: "/media/chocochaud.jpg",
     name: "Hot Chocolate",
     description:
-      "Next to the fireplace, take place under your duvet... and have an Hot Chocolate",
+      "Next to the fireplace, take place under your duvet... and have a Hot Chocolate",
     ingredients: [
       "3 ounces milk chocolate",
       "3 ounces bittersweet chocolate",
