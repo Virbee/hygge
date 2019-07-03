@@ -3,6 +3,7 @@
 @import "./forms.css";
 @import "./journal.css";
 @import "./show.css";
+@import "./manage.css";
 
 /*importer les differentes pages css*/
 body {

@@ -1,26 +1,39 @@
-{{#if recipes}}
-<a href="/add/Recipe">Add</a>
-<ul>
-  {{#each recipes}}
-  <li>{{this.name}}<a href="/delete/Recipe/{{this._id}}">Delete</a></li>
-  {{/each}}
-</ul>
-{{/if}}
+<section class="manage-container">
+  {{#if recipes}}
+  <h1>Manage Recipes</h1>
+  <div id="search-add">
+    <label for="search-bar">Search : </label>
+    <input type="text" id="search-bar" name="name" required minlength="4" maxlength="40" size="40">
+    <p>or</p>
+    <a href="/add/Recipe" id="add-button">
+      +
+    </a>
+  </div>
 
-{{#if pictures}}
-<a href="/add_picture">Add</a>
-<ul>
-  {{#each pictures}}
-  <li>{{this.img}}</li>
-  {{/each}}
-</ul>
-{{/if}}
+  <div id="table">
+    <table class="product-manage-table">
+      <thead>
+        <tr class="table-row">
+          <th colspan="1" class="table-head">Recipe's name</th>
+          <th colspan="1" class="table-head"> </a> Edit</th>
+          <th colspan="1" class="table-head">Delete</th>
+        </tr>
+      </thead>
 
-{{#if sentences}}
-<a href="/add_sentence">Add</a>
-<ul>
-  {{#each sentences}}
-  <li>{{sentence}}</li>
-  {{/each}}
-</ul>
-{{/if}}
+      <tbody>
+        {{#each recipes}}
+        <tr class="table-row">
+          <td class="table-division">
+            <div>{{this.name}}</div>
+          </td>
+          <td class="table-division"><a href="/product-edit/{{this._id}}" class="fa fa-edit table-icon"><img
+                alt="edit logo" src="/media/edit-logo.png" id="edit-logo"></a>
+          <td class="table-division"><a href="/delete/Recipe/{{this._id}}" class="fa fa-trash table-icon"
+              aria-hidden="true"><img alt="delete logo" src="/media/delete-logo.png" id="delete-logo"></a></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  {{/if}}

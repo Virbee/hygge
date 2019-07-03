@@ -89,7 +89,7 @@ router.post(["/add/Recipe", "/add/Picture", "/add/Moto"], (req, res) => {
       preparationTime: preparation,
       season: season
     })
-      .then(recipe => res.redirect("/show"))
+      .then(res.redirect("/manage/Recipe"))
       .catch(err => console.log(err));
   } else if (mod == "Picture") {
     res.render("add_picture");

@@ -1,26 +1,38 @@
 const IngredientAPI = axios.create({ baseURL: "/" });
 
 var ingredients = [];
+const addButton = document.getElementById("new-ingredient");
+const ingredient = document.getElementById("ingredient");
+const ingredientList = document.getElementById("ingredients-list");
+const checkbox = document.getElementById("hidden-ingredients");
 
-//quand on clique sur le bouton Add
-//evt.preventDefault();
-//ingredient = valeur ingrédients de l'input
-//on pousse la valeur dans le tableau
-// on l'ajoute au HTML
+///// ADD INGREDIENT /////
 
-console.log(document.getElementById("new-ingredient"));
-
-document.getElementById("new-ingredient").onclick = function(evt) {
+addButton.onclick = function(evt) {
   evt.preventDefault();
-  console.log(evt);
-  const ingredient = document.getElementById("ingredient");
-  const newIngredient = ingredient.value;
+  var newIngredient = ingredient.value;
   ingredients.push(newIngredient);
-  IngredientAPI.post("/add/Recipe/ingredients", { ingredients })
-    .then()
-    .catch();
+  const newId = `delete-btn-${Date.now()}`;
+  ingredientList.innerHTML += `
+  <div class="item-ingredient">
+    <p>${newIngredient}</p>
+    <button class="btn delete" id="${newId}">x</button>
+  </div>`;
+  checkbox.innerHTML += `<div id="checkbox-${newId}">
+  <input type="checkbox" class="input-text input" name="ingredients" id="ingredient" value="${newIngredient}">
+  <label for="ingredient" class="label-cat label">${newIngredient}</label>
+  </div>`;
+  ingredient.value = "";
+  document.querySelector(".delete").onclick = deleteIngredient;
 };
 
-////delete
-//qd on clique sur la croix, on la supprime ainsi que l'élément précédent
-//on supprime l'entrée du tableau (qui va alimenter la checkbox cachée)
+////// DELETE INGREDIENT //////
+
+function deleteIngredient(evt) {
+  evt.preventDefault();
+  console.log(evt);
+  const target = evt.target;
+  const checkbox = document.getElementById(`checkbox-${target.id}`);
+  target.parentElement.remove();
+  checkbox.remove();
+}
