@@ -1,30 +1,31 @@
 <div class="add-big-container">
   <form method="post" action="/add/Recipe" class="add-recipe-form">
 
-    <h1 class="form-title">Add a recipe</h1>
+    <h1 class="form-title">Edit the recipe</h1>
 
     {{!------------------------------- name ----------------------------------}}
     <div class="form-item-wrapper">
       <label for="recipe-name" class="label-name label">Name</label>
-      <input type="text" class="input-text input" placeholder="chocolate cake" name="name" required>
+      <input type="text" class="input-text input" value="{{recipe.name}}" name="name" required>
     </div>
 
     {{!------------------------------- description ----------------------------------}}
     <div class="form-item-wrapper">
       <label for="recipe-description" class="label-description label">Description</label>
-      <input type="text" class="input-text input" name="description" id="recipe-description" placeholder="share it with your friends" required>
+      <input type="text" class="input-text input" name="description" id="recipe-description" value="{{recipe.description}}" required>
     </div>
 
     {{!----------------------------- preparation time ------------------------------}}
     <div class="form-item-wrapper">
       <label for="preparation" class="label-prep label">Preparation time</label>
-      <input type="number" class="input-number input" placeholder="less than an hour preparation" name="preparation" required>
+      <input type="number" class="input-number input" value="{{recipe.preparationTime}}" name="preparation" required>
     </div>
 
     {{!------------------------------- img ----------------------------------}}
     <div class="form-item-wrapper">
+      <img src="{{recipe.img}}">
       <label for="recipe-img" class="label-image label">Image</label>
-      <input type="file" class="input-img input" name="img" required>
+      <input type="file" class="input-img input" name="img" value="{{recipe.img}}" required>
     </div>
 
       {{!------------------------------- ingredients ----------------------------------}}
@@ -38,13 +39,16 @@
     
 
     <div id="ingredients-list">
-      <div class="item-ingredient">
-      <p>120g de beurre</p>
-    <button class="btn delete" id="${newId}">x</button>
   </div>
     </div>
 
-    <fieldset id="hidden-ingredients">
+    <fieldset>
+      {{#each recipe.ingredients}}
+        <div>
+        <input type="checkbox" class="input-text input" name="ingredients" id="ingredient" value="{{this}}" checked>
+        <label for="ingredient" class="label-cat label">{{this}}</label>
+        </div>
+      {{/each}}
     </fieldset>
     </div>
     {{!------------------------------- instructions ----------------------------------}}

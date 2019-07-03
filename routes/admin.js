@@ -100,8 +100,11 @@ router.post(["/add/Recipe", "/add/Picture", "/add/Moto"], (req, res) => {
 
 ///////////EDIT////////////
 
-router.get("/edit_elements", (req, res) => {
-  res.render("edit_elements");
+router.get("/edit/Recipe/:id", (req, res) => {
+  Recipe.findById(req.params.id)
+  .then(recipe =>res.render("edit_recipe", {recipe}))
+  .catch(err=> console.log(err))
+  ;
 });
 
 module.exports = router;

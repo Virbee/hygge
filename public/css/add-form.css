@@ -1,0 +1,46 @@
+.add-big-container {
+  margin-left: 40px;
+}
+
+.form-title {
+  size: 1.5em;
+  text-align: center;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+.form-item-wrapper {
+  flex-direction: column;
+  margin-bottom: 1.1rem;
+}
+
+#hidden-ingredients {
+  visibility: hidden;
+  margin: 0;
+}
+
+#ingredients-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-ingredient {
+  margin: 5px 10px;
+  padding-left: 5px;
+  background-color: lightgrey;
+  display: flex;
+}
+
+.item-ingredient p {
+  margin: 0;
+  margin-right: 1em;
+}
+
+#hidden-methods {
+  visibility: hidden;
+  margin: 0;
+}
+
+.items-input {
+  border-top:1px solid;
+  border-bottom: 1px solid;
+}
