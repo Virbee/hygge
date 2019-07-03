@@ -1,0 +1,26 @@
+{{#if recipes}}
+<a href="/add/Recipe">Add</a>
+<ul>
+  {{#each recipes}}
+  <li>{{this.name}}<a href="/delete/Recipe/{{this._id}}">Delete</a></li>
+  {{/each}}
+</ul>
+{{/if}}
+
+{{#if pictures}}
+<a href="/add_picture">Add</a>
+<ul>
+  {{#each pictures}}
+  <li>{{this.img}}</li>
+  {{/each}}
+</ul>
+{{/if}}
+
+{{#if sentences}}
+<a href="/add_sentence">Add</a>
+<ul>
+  {{#each sentences}}
+  <li>{{sentence}}</li>
+  {{/each}}
+</ul>
+{{/if}}

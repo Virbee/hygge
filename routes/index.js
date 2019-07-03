@@ -1,11 +1,18 @@
 const express = require("express");
 const router = new express.Router();
-//const data = require("../bin/seeds");
 const Recipe = require("../models/Recipe");
 const Picture = require("../models/Picture");
 const Moto = require("../models/Moto");
-const data = require("../seeds2");
 //importer data
+const recipes = require("../bin/recipes");
+const pictures = require("../bin/pictures");
+const sentences = require("../bin/motos");
+
+///////////RANDOM FUNCTION////////
+function chooseRandom(items) {
+  const i = Math.floor(Math.random() * items.length);
+  return items[i];
+}
 
 ///////AFFICHAGE DYNAMIQUE//////////
 router.get("/", (req, res) => {
@@ -13,26 +20,35 @@ router.get("/", (req, res) => {
 });
 
 router.get("/journal", (req, res) => {
-  res.render("journal");
+  Promise.all([
+    Recipe.find().catch(err => console.log(err)),
+    Moto.find().catch(err => console.log(err)),
+    Picture.find().catch(err => console.log(err), Recipe.find())
+  ]).then(values => {
+    const drinks = values[0].filter(value => value.category.includes("drink"));
+    const recipes = values[0].filter(
+      value => !value.category.includes("drink")
+    );
+
+    const drink = chooseRandom(drinks);
+    const recipe = chooseRandom(recipes);
+    const moto = chooseRandom(values[1]);
+    const picture = chooseRandom(values[2]);
+    console.log(recipe, moto, picture);
+    res.render("journal", { recipe, moto, picture, drink });
+  });
 });
 
-router.get("/show", (req, res) => {
-  res.render("show");
-});
-
-//////////ADMIN//////////////////
-router.get("/add_elements", (req, res) => {
-  res.render("add_elements");
-});
-
-router.get("/edit_elements", (req, res) => {
-  res.render("edit_elements");
+router.get("/show/:id", (req, res) => {
+  Recipe.findById(req.params.id)
+    .then(recipe => res.render("show", { recipe }))
+    .catch(err => console.log(err));
 });
 
 ///////////INSERT DATA///////////
-function insertData(data) {
-  Recipe.insertMany(data)
-    .then(recipe => console.log(data))
+function insertData(recipes, sentences, pictures) {
+  Recipe.insertMany(recipes)
+    .then(recipe => console.log(recipes))
     .catch(err => console.log(err));
   Moto.insertMany(sentences)
     .then(moto => console.log(sentences))
@@ -42,5 +58,5 @@ function insertData(data) {
     .catch(err => console.log(err));
 }
 
-//insertData(data);
+//insertData(recipes, sentences, pictures);
 module.exports = router;
