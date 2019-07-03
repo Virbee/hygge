@@ -13,15 +13,15 @@ router.get(
     const mod = urlSplit[2];
     if (mod == "Recipe") {
       Recipe.find()
-        .then(recipes => res.render("manage_page", { recipes }))
+        .then(recipes => res.render("partials/manage_recipe", { recipes }))
         .catch();
     } else if (mod == "Picture") {
       Picture.find()
-        .then(pictures => res.render("manage_page", { pictures }))
+        .then(pictures => res.render("partials/manage_picture", { pictures }))
         .catch();
     } else {
       Moto.find()
-        .then(sentences => res.render("manage_page", { sentences }))
+        .then(motos => res.render("partials/manage_motos", { motos }))
         .catch();
     }
   }
