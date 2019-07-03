@@ -1,0 +1,49 @@
+.manage-container {
+  margin: 10px 10px 10px 40px;
+}
+
+.manage-container h1 {
+  size: 2em;
+  text-align: center;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  margin-bottom: 20px;
+}
+
+#add-button {
+  text-decoration: none;
+  color: white;
+  background-color: tan;
+  padding: 6px 10px;
+  margin: 10px;
+  border-radius: 2px;
+  height: 50%;
+}
+
+#search-add {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+#edit-logo {
+  max-height: 10px;
+}
+
+#delete-logo {
+  max-height: 10px;
+}
+
+#table {
+  display: flex;
+  justify-content: start;
+  margin-top: 10px;
+}
+
+.product-manage-table {
+  width: 80%;
+}
+
+.table-division {
+  border: 1px solid;
+}
