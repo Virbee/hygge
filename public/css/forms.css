@@ -32,3 +32,21 @@ h3.form-title {
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
 }
+
+/* ADD FORM */
+
+#hidden-ingredients {
+  visibility: hidden;
+  margin: 0;
+}
+
+#ingredients-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-ingredient {
+  margin: 0px 10px;
+  padding: 5px;
+  background-color: lightgrey;
+}
