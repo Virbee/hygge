@@ -35,13 +35,17 @@ router.get("/journal", (req, res) => {
     const moto = chooseRandom(values[1]);
     const picture = chooseRandom(values[2]);
     console.log(recipe, moto, picture);
+    console.log(drink);
     res.render("journal", { recipe, moto, picture, drink });
   });
 });
 
 router.get("/show/:id", (req, res) => {
   Recipe.findById(req.params.id)
-    .then(recipe => res.render("show", { recipe }))
+    .then(recipe => {
+      console.log(recipe);
+      res.render("show", { recipe });
+    })
     .catch(err => console.log(err));
 });
 
@@ -58,5 +62,5 @@ function insertData(recipes, sentences, pictures) {
     .catch(err => console.log(err));
 }
 
-//insertData(recipes, sentences, pictures);
+// insertData(recipes, sentences, pictures);
 module.exports = router;
