@@ -1,25 +1,27 @@
 <section id="show-container">
   <div class="show-description">
-    <h1>{{recipe.name}}</h1>
-    <h3>{{recipe.description}}</h3>
+    <h1 class="show-recipe-title">{{recipe.name}}</h1>
+    <div class="line"></div>
+    <h3 class="show-recipe-desc">{{recipe.description}}</h3>
   </div>
   <div class="show-img">
     <img alt="dish-pic" src="{{recipe.img}}">
-    <p>Temps de préparation : {{recipe.preparationTime}}min</p>
   </div>
+    <p class="show-prep">Preparation time : {{recipe.preparationTime}}min</p>
+
   <div class="show-ingredients">
-    <h3>Ingredients</h3>
-    <ul>
+    <h3 class="show-ingredients-title">Ingredients</h3>
+    <ul class="ingredients-list">
       {{#each recipe.ingredients}}
-      <li>{{this}}</li>
+      <li class="show-ingredient">{{this}}</li>
       {{/each}}
     </ul>
   </div>
   <div class="show-methods">
-    <h3>Methods</h3>
-    <ul>
+    <h3 class="show-methods-title">Methods</h3>
+    <ul class="methods-list">
       {{#each recipe.instructions}}
-      <li>{{this}}</li>
+      <li class="methods-instruction"><span>{{this}}</span></li>
       {{/each}}
     </ul>
 

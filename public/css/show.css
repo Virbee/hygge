@@ -1,24 +1,113 @@
 #show-container {
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 60px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 2em;
+  padding: 30px 20px 0 0;
+ align-items: center;
 }
-
+.show-description {
+  width: 80%;
+  margin-bottom: 1.5rem;
+}
 .show-description h1 {
   color: #555555;
-  font-size: 3em;
+  font-size: 3rem;
   padding: 10px 0;
   margin: 0;
+  text-align: center;
 }
 
+.line {
+  background:#cdcdcd;
+  height: 2px;
+  width:100%;
+  margin: 1rem 0 1rem 0;
+}
 .show-description h3 {
-  font-size: 1em;
+  font-size: 1.2rem;
   margin: 0;
+ color:#999999;
+ font-style: italic;
+ text-align: center;
+ font-weight: lighter;
+}
+.show-img {
+  width: 50%;
+}
+
+.show-prep {
+  font-size: 1.2rem;
+  margin-top: .8rem;
+  margin-bottom: 2.5rem;
 }
 
 .show-img img {
-  width: 70%;
-  margin: 10px 0px;
+  width:100%;
+  /* margin: 50px 80px; */
 }
 
 .show-img p {
   margin: 0;
+  font-size:1.5vw;
+ 
+}
+
+.show-ingredients h3{
+  font-size: 1.5em;
+  text-decoration: underline;
+  text-align: center;
+  margin-bottom: 1.5rem;
+
+
+}
+.show-ingredients{
+  font-size: 1.5vw;
+  /* position:absolute; */
+  text-align: left;
+  margin-bottom:3rem;
+}
+ul.ingredients-list {
+  list-style-type: none;
+ }
+
+li.show-ingredient{
+  text-align: center;
+  margin-bottom: .3rem;
+}
+
+
+.show-methods h3{
+  font-size: 1.5em;
+  text-decoration: underline;
+  text-align: center;
+  margin-bottom: 1.5rem;
+
+}
+.show-methods{
+  font-size: 1.5vw;
+  /* position:absolute; */
+  bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 3.5rem;
+}
+.methods-list {
+  margin:0 0 0 20px;
+ 
+}
+
+li.methods-instruction {
+  list-style: circle inside;
+  text-align: center;
+  margin-bottom: .3rem;
+}
+li.methods-instruction span {
+  position: relative;
+  left: -16px;
 }
