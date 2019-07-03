@@ -24,5 +24,7 @@ const RecipeSchema = new Schema({
   season: { type: [String], enum: ["Spring", "Summer", "Fall", "Winter"] }
 });
 
+RecipeSchema.index({ name: "text", ingredients: "text" });
+
 const Recipe = mongoose.model("Recipe", RecipeSchema);
 module.exports = Recipe;

@@ -30,18 +30,14 @@
       {{!------------------------------- ingredients ----------------------------------}}
     
     <div class="form-item-wrapper items-input">
-      <div>
+      <div class="add-items">
       <label for="ingredient" class="label-ingredient label">Ingredients</label>
       <input name="ingredient" id="ingredient" class="input-text input" placeholder="120g of butter">
-      <button id="new-ingredient">+</button>
+      <p class="button" id="new-ingredient">+</p>
       </div>
     
 
     <div id="ingredients-list">
-      <div class="item-ingredient">
-      <p>120g de beurre</p>
-    <button class="btn delete" id="${newId}">x</button>
-  </div>
     </div>
 
     <fieldset id="hidden-ingredients">
@@ -49,10 +45,10 @@
     </div>
     {{!------------------------------- instructions ----------------------------------}}
     <div class="form-item-wrapper items-input">
-      <div>
+      <div class="add-items">
         <label for="method" class="label-instructions label">Methods</label>
         <input type="text" name="new-instruction" id="method" placeholder="bake 30 minutes in the oven">
-        <button id="new-method">+</button>
+        <p class="button" id="new-method">+</p>
       </div>
       <div id="methods-list">
       </div>
@@ -96,7 +92,3 @@
     </fieldset>
     <button class="button-primary add-category-btn">Save</button>
   </form>
-
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/js/ingredientsHandler.js"></script>
-  <script src="/js/methodsHandler.js"></script>

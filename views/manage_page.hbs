@@ -24,7 +24,7 @@
         {{#each recipes}}
         <tr class="table-row">
           <td class="table-division">
-            <div>{{this.name}}</div>
+            <div><a href="/show/{{this._id}}">{{this.name}}</a></div>
           </td>
           <td class="table-division"><a href="/edit/Recipe/{{this._id}}" class="fa fa-edit table-icon"><img
                 alt="edit logo" src="/media/edit-logo.png" id="edit-logo"></a>

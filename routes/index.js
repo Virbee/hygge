@@ -62,5 +62,5 @@ function insertData(recipes, sentences, pictures) {
     .catch(err => console.log(err));
 }
 
-// insertData(recipes, sentences, pictures);
+//insertData(recipes, sentences, pictures);
 module.exports = router;

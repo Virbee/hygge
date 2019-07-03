@@ -27,6 +27,8 @@ const basePageRouter = require("./routes/index");
 app.use(basePageRouter);
 const adminRouter = require("./routes/admin");
 app.use(adminRouter);
+const apiRecipes = require("./routes/api-recipe");
+app.use("/api", apiRecipes);
 
 const listener = app.listen(process.env.PORT || 8000, () => {
   console.log(`app started at ${process.env.SITE_URL}`);
