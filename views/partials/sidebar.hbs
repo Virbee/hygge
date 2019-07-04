@@ -1,22 +1,35 @@
 <nav class="sidebar">
   <div id="profile-container">
     <div id="welcome">
+      {{#unless isLoggedIn}}
       <img id="logo" alt="logo" src="/media/logo.png">
       <h1>Hy·gge</h1>
       <p>Spend a calm, confortable time with people you love. Enjoy with good food and drinks, warm blankets and
         candlelight.</p>
+      {{/unless}}
+      {{#if isLoggedIn}}
+      <div id="logo-container"><img id="logo" alt="logo" src="/media/logo.png">
+        <h1>Hy·gge</h1>
+      </div>
+      <div id="welcome-container">
+        <h3>Hello {{user.name}}</h3>
+        <p> Have a nice day. Enjoy every moment.</p>
+      </div>
+      {{/if}}
     </div>
-    {{#if user.admin}}
+  </div>
+  {{#if user.admin}}
+  <div id="menu-admin">
     <a href="/manage/Recipe">Manage recipes</a>
     <a href="/manage/Moto">Manage sentences</a>
     <a href="/manage/Picture">Manage pictures</a>
-    {{/if}}
-
   </div>
+  {{/if}}
+
   <div class="footer">
     {{#unless isLoggedIn}}
     <div id="connect"><a id="connect-button" href="/login">Login</a>
-      <p><a href="/signup">Sign up</a></p>
+      <p><a id="signup-button" href="/signup">Sign up</a></p>
     </div>
     {{/unless}}
     {{#if isLoggedIn}}

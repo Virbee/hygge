@@ -1,22 +1,25 @@
-<section class="manage-container">
-  <div>
-    <h1>Enjoy yourself on Hy·gge !</h1>
+<section class="form-container">
+  <div class="form-title">
+    <h1>Enjoy your day with Hy·gge.</h1>
   </div>
-  <div class="auth-form">
-    <form action="/login" method="POST" id="form_user">
-      <div class="input">
-        <label for="email">Email</label>
-        <input type="email" name="email" placeholder="albert.biceps@gmail.com" required>
-      </div>
-      <div class="input">
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="••••••" required>
-      </div class="input">
-      {{#if errorMessage }}
-      <div class="error-message">{{ errorMessage }}</div>
-      {{/if}}
-      <button class="btn">Connect to Account</button>
-    </form>
-    <p>Don't have an account yet ? <a href="/signup">Sign Up</a></p>
+  <div class="form-body">
+    <div class="form-img"><img alt="hygge pic" src="/media/IMG_3916.jpg"></div>
+    <div class="auth-form">
+      <form action="/login" method="POST" id="form_user">
+        <div class="input">
+          <label for="email">Email</label>
+          <input type="email" name="email" placeholder="albert.biceps@gmail.com" required>
+        </div>
+        <div class="input">
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="••••••" required>
+        </div class="input">
+        {{#if errorMessage }}
+        <div class="error-message">{{ errorMessage }}</div>
+        {{/if}}
+        <button class="btn">Connect to Account</button>
+      </form>
+      <p>Don't have an account yet ? <a href="/signup">Sign Up</a></p>
+    </div>
   </div>
 </section>

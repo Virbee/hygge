@@ -1,22 +1,29 @@
 <section class="manage-container">
-  <h1>Enjoy the present day with Hy·gge</h1>
-  <div class="auth-form">
-    <form method="POST" action="/signup" id="form_user">
-      <div class="input">
-        <label for="name">Name</label>
-        <input type="text" name="name" placeholder="Albert" required>
-      </div>
-      <div class="input">
-        <label for="email">Email</label>
-        <input type="email" name="email" placeholder="albert.biceps@gmail.com" required>
-      </div>
-      <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="••••••" required>
-      </div class="input">
-      <button class="btn" id="create-account-btn">Create Account</button>
-    </form>
+  <div class="form-title">
+    <h1>Enjoy yourself on Hy·gge.</h1>
+    <h3>Create an account!</h3>
+  </div>
 
-    <p>Already have an account ? <a href="/login">Sign In</a></p>
+  <div class="form-body">
+    <div class="form-img"><img alt="hygge pic" src="/media/IMG_3916.jpg"></div>
+    <div class="auth-form">
+      <form method="POST" action="/signup" id="form_user">
+        <div class="input">
+          <label for="name">Name</label>
+          <input type="text" name="name" placeholder="Albert" required>
+        </div>
+        <div class="input">
+          <label for="email">Email</label>
+          <input type="email" name="email" placeholder="albert.biceps@gmail.com" required>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="••••••" required>
+        </div class="input">
+        <button class="btn" id="create-account-btn">Create Account</button>
+      </form>
+
+      <p>Already have an account ? <a href="/login">Sign In</a></p>
+    </div>
   </div>
 </section>
