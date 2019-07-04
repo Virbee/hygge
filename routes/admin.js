@@ -3,6 +3,7 @@ const router = new express.Router();
 const Recipe = require("../models/Recipe");
 const Picture = require("../models/Picture");
 const Moto = require("../models/Moto");
+const uploader = require("./../config/cloudinary");
 
 const categories = [
   "breakfast",
@@ -14,6 +15,53 @@ const categories = [
 ];
 const seasons = ["Spring", "Summer", "Fall", "Winter"];
 
+//////////cloudinary///////////
+// router.post("/add_picture", uploader.single("img"), (req, res) => {
+//   if (req.file && req.file.secure_url) {
+//     console.log(req.file.secure_url);
+//     let url = req.file.secure_url;
+//     Picture.create({
+//       img: url
+//     })
+//       .then(dbRes => {
+//         console.log("img upload ok");
+//         res.redirect("/manage/Picture");
+//       })
+//       .catch(dbErr => {
+//         console.log("img upload not ok");
+//         res.redirect("/manage/Picture");
+//       });
+//     return;
+//   }
+
+//   Picture.create({})
+//     .then(dbRes => {
+//       console.log("img create default ok");
+//       console.log(dbRes);
+//     })
+//     .catch(dbErr => {
+//       console.log("img create default not ok");
+//       console.log(dbErr);
+//     });
+// });
+// router.post("/add_recipe", uploader.single("img"), (req, res) => {
+//   if (req.file && req.file.secure_url) {
+//     console.log(req.file.secure_url);
+//     let url = req.file.secure_url;
+//     Picture.create({
+//       img: url
+//     })
+//       .then(dbRes => {
+//         console.log("img upload ok");
+//         res.redirect("/manage/Recipe");
+//       })
+//       .catch(dbErr => {
+//         console.log("img upload not ok");
+//         res.redirect("/manage/Recipe");
+//       });
+//     return;
+//   }
+// });
 //////////MANAGE PAGE/////////
 router.get(
   ["/manage/Recipe", "/manage/Picture", "/manage/Moto"],
@@ -74,39 +122,60 @@ router.get(["/add/Recipe", "/add/Picture", "/add/Moto"], (req, res) => {
   }
 });
 
-router.post(["/add/Recipe", "/add/Picture", "/add/Moto"], (req, res) => {
-  const url = req.url;
-  const urlSplit = url.split("/");
-  const mod = urlSplit[2];
-  if (mod == "Recipe") {
-    const {
-      name,
-      description,
-      img,
-      ingredients,
-      instructions,
-      category,
-      preparation,
-      season
-    } = req.body;
-    Recipe.create({
-      name: name,
-      description: description,
-      img: img,
-      ingredients: ingredients,
-      instructions: instructions,
-      category: category,
-      preparationTime: preparation,
-      season: season
-    })
-      .then(res.redirect("/manage/Recipe"))
-      .catch(err => console.log(err));
-  } else if (mod == "Picture") {
-    res.render("add_picture");
-  } else {
-    res.render("add_sentence");
+router.post(
+  ["/add/Recipe", "/add/Picture", "/add/Moto"],
+  uploader.single("img"),
+  (req, res) => {
+    const url = req.url;
+    const urlSplit = url.split("/");
+    const mod = urlSplit[2];
+    if (mod == "Recipe") {
+      let url = req.file.secure_url;
+      const {
+        name,
+        description,
+        ingredients,
+        instructions,
+        category,
+        preparation,
+        season
+      } = req.body;
+      Recipe.create({
+        name: name,
+        description: description,
+        img: url,
+        ingredients: ingredients,
+        instructions: instructions,
+        category: category,
+        preparationTime: preparation,
+        season: season
+      })
+        .then(res.redirect("/manage/Recipe"))
+        .catch(err => console.log(err));
+    } else if (mod == "Picture") {
+      let url = req.file.secure_url;
+      Picture.create({
+        img: url
+      })
+        .then(dbRes => {
+          console.log("img upload ok");
+          res.redirect("/manage/Picture");
+        })
+        .catch(dbErr => {
+          console.log("img upload not ok");
+          res.redirect("/manage/Picture");
+        });
+      return;
+    } else {
+      const { sentence } = req.body;
+      Moto.create({
+        sentence
+      })
+        .then(res.render("add_sentence"))
+        .catch(err => console.log(err));
+    }
   }
-});
+);
 
 ///////////EDIT////////////
 

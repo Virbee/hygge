@@ -1,12 +1,11 @@
- <form class="add-recipe-form">
+ <form class="add-recipe-form" method="post" action="/add/Picture" enctype="multipart/form-data">
     <h3 class="form-title">Add a picture</h3>
     <div class="form-item-wrapper flexed-item">
       <label for="img" class="label-img label">Image</label>
-      <input type="file" class="input- input" name="img">
+      <input type="file" class="input-img input" name="img">
       <button class="button-primary add-category-btn">Save</button>
     </div>
   </form>
 
-   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/js/picturesHandler.js"></script>
   <script src="/js/methodsHandler.js"></script>
