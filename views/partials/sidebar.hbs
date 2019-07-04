@@ -6,13 +6,17 @@
       <p>Spend a calm, confortable time with people you love. Enjoy with good food and drinks, warm blankets and
         candlelight.</p>
     </div>
-    <div id="connect"><a id="connect-button" href="/journal">Se connecter</a></div>
+    {{#if admin}}
     <a href="/manage/Recipe">Manage recipes</a>
     <a href="/manage/Moto">Manage sentences</a>
     <a href="/manage/Picture">Manage pictures</a>
+    {{/if}}
 
   </div>
   <div class="footer">
+    <div id="connect"><a id="connect-button" href="/login">Login</a>
+      <p><a href="/signup">Sign up</a></p>
+    </div>
 
     <p class="social-buttons">
       <img alt="logo insta" src="/media/logo-insta.png">

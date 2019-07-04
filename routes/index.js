@@ -3,10 +3,12 @@ const router = new express.Router();
 const Recipe = require("../models/Recipe");
 const Picture = require("../models/Picture");
 const Moto = require("../models/Moto");
+const User = require("../models/User");
 //importer data
 const recipes = require("../bin/recipes");
 const pictures = require("../bin/pictures");
 const sentences = require("../bin/motos");
+const users = require("../bin/users");
 
 ///////////RANDOM FUNCTION////////
 function chooseRandom(items) {
@@ -50,7 +52,7 @@ router.get("/show/:id", (req, res) => {
 });
 
 ///////////INSERT DATA///////////
-function insertData(recipes, sentences, pictures) {
+function insertData(recipes, sentences, pictures, users) {
   Recipe.insertMany(recipes)
     .then(recipe => console.log(recipes))
     .catch(err => console.log(err));
@@ -60,7 +62,10 @@ function insertData(recipes, sentences, pictures) {
   Picture.insertMany(pictures)
     .then(picture => console.log(pictures))
     .catch(err => console.log(err));
+  User.insertMany(users)
+    .then(picture => console.log(users))
+    .catch(err => console.log(err));
 }
 
-//insertData(recipes, sentences, pictures);
+//insertData(recipes, sentences, pictures, users);
 module.exports = router;

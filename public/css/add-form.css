@@ -41,48 +41,63 @@
 }
 
 .items-input {
-  border-top:1px solid;
+  border-top: 1px solid;
   border-bottom: 1px solid;
 }
 
 .add-items {
-  display:flex;
+  display: flex;
   flex-direction: row;
 }
 
 .button {
-  margin:0;
-  background-color:tan;
-  color : white;
-  border-radius:6px;
+  margin: 0;
+  background-color: tan;
+  color: white;
+  border-radius: 6px;
   padding: 0 5px;
 }
 
 .button p:hover {
-  color:black;
+  color: black;
 }
-
 
 /* EDIT */
 
-#edit-img{
-  height:80px;
-  margin-left:5px;
+#edit-img {
+  height: 80px;
+  margin-left: 5px;
 }
 
-.input-text{
+.input-text {
   width: 80%;
 }
 
-.edit-logo{
-  max-height:10px;
+.edit-logo {
+  max-height: 10px;
 }
 
-.save-button{
+.save-button {
   background-color: tan;
-  font-size:1em;
+  font-size: 1em;
   color: white;
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
+}
+
+/* SIGN UP */
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  margin: 10px;
+}
+
+#create-account-btn {
+  margin: 10px;
 }

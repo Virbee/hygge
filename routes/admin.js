@@ -31,7 +31,7 @@ router.get(
         .catch();
     } else {
       Moto.find()
-        .then(motos => res.render("partials/manage_motos", { motos }))
+        .then(sentences => res.render("partials/manage_motos", { sentences }))
         .catch();
     }
   }
