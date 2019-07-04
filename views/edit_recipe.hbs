@@ -5,25 +5,28 @@
 
     {{!------------------------------- name ----------------------------------}}
     <div class="form-item-wrapper">
+      <img alt="edit-logo" src="/media/edit-logo.png" class="edit-logo" id="edit-name">
       <label for="recipe-name" class="label-name label">Name</label>
       <input type="text" class="input-text input" value="{{recipe.name}}" name="name" required>
     </div>
 
     {{!------------------------------- description ----------------------------------}}
     <div class="form-item-wrapper">
+      <img alt="edit-logo" src="/media/edit-logo.png" class="edit-logo" id="edit-description">
       <label for="recipe-description" class="label-description label">Description</label>
       <input type="text" class="input-text input" name="description" id="recipe-description" value="{{recipe.description}}" required>
     </div>
 
     {{!----------------------------- preparation time ------------------------------}}
     <div class="form-item-wrapper">
+      <img alt="edit-logo" src="/media/edit-logo.png" class="edit-logo" id="edit-time">
       <label for="preparation" class="label-prep label">Preparation time</label>
       <input type="number" class="input-number input" value="{{recipe.preparationTime}}" name="preparation" required>
     </div>
 
     {{!------------------------------- img ----------------------------------}}
     <div class="form-item-wrapper">
-      <img src="{{recipe.img}}">
+      <div><img alt="edit-logo" src="/media/edit-logo.png" class="edit-logo" id="edit-img"><img src="{{recipe.img}}" id="edit-img"></div>
       <label for="recipe-img" class="label-image label">Image</label>
       <input type="file" class="input-img input" name="img" value="{{recipe.img}}" required>
     </div>
@@ -36,16 +39,11 @@
       <input name="ingredient" id="ingredient" class="input-text input" placeholder="120g of butter">
       <button id="new-ingredient">+</button>
       </div>
-    
 
-    <div id="ingredients-list">
-  </div>
-    </div>
-
-    <fieldset>
+    <fieldset id="visible-checkbox">
       {{#each recipe.ingredients}}
         <div>
-        <input type="checkbox" class="input-text input" name="ingredients" id="ingredient" value="{{this}}" checked>
+        <input type="checkbox" name="ingredients" id="ingredient" value="{{this}}" checked>
         <label for="ingredient" class="label-cat label">{{this}}</label>
         </div>
       {{/each}}
@@ -53,54 +51,39 @@
     </div>
     {{!------------------------------- instructions ----------------------------------}}
     <div class="form-item-wrapper items-input">
-      <div>
+      <div id="visible-checkbox"> 
         <label for="method" class="label-instructions label">Methods</label>
-        <input type="text" name="new-instruction" id="method" placeholder="bake 30 minutes in the oven">
+        <input type="text" name="new-instruction" class="input-text input" id="method" placeholder="bake 30 minutes in the oven">
         <button id="new-method">+</button>
       </div>
-      <div id="methods-list">
-      </div>
-     <fieldset id="hidden-methods">
+     <fieldset id="visible-checkbox">
+       {{#each recipe.instructions}}
+        <div>
+        <input type="checkbox" name="instructions" id="instruction" value="{{this}}" checked>
+        <label for="instruction" class="label-cat label">{{this}}</label>
+        </div>
+      {{/each}}
      </fieldset>
     </div>
 
     {{!------------------------------- category ----------------------------------}}
     <fieldset class="form-item-wrapper">
       <legend>Category</legend>
+      {{#each category}}
       <div>
-        <input type="checkbox" class="input-text input" name="category" id="breakfast" value="breakfast">
-        <label for="breakfast" class="label-cat label">breakfast</label>
-      </div>
-      <div>
-        <input type="checkbox" class="input-text input" name="category" id="desert" value="desert">
-        <label for="desert" class="label-cat label">desert</label>
-      </div>
-      <div><input type="checkbox" class="input-text input" name="category" id="dish" value="dish">
-        <label for="dish" class="label-cat label">dish</label></div>
-      <div><input type="checkbox" class="input-text input" name="category" id="drink" value="drink">
-        <label for="drink" class="label-cat label">drink</label></div>
-      <div><input type="checkbox" class="input-text input" name="category" id="starter" value="starter">
-        <label for="starter" class="label-cat label">starter</label></div>
-      <div><input type="checkbox" class="input-text input" name="category" id="teatime" value="teatime">
-        <label for="teatime" class="label-cat label">teatime</label></div>
+        <input type="checkbox" name="category" id="{{this.cat}}" value="{{this.cat}}" {{#if this.checked}} checked {{/if}}>
+        <label for="{{this.cat}}" class="label-cat label">{{this.cat}}</label>
+      {{/each}}
     </fieldset>
 
     {{!---------------------------- seasons ---------------------------------------}}
 
     <fieldset class="form-item-wrapper">
       <legend>Season</legend>
-      <div><input type="checkbox" class="input-text input" name="season" id="Spring" value="Spring">
-        <label for="Spring" class="label-cat label">Spring</label></div>
-      <div><input type="checkbox" class="input-text input" name="season" id="Summer" value="Summer">
-        <label for="Summer" class="label-cat label">Summer</label></div>
-      <div><input type="checkbox" class="input-text input" name="season" id="Fall" value="Fall">
-        <label for="Fall" class="label-cat label">Fall</label></div>
-      <div><input type="checkbox" class="input-text input" name="season" id="Winter" value="Winter">
-        <label for="Winter" class="label-cat label">Winter</label></div>
+      {{#each season}}
+      <div><input type="checkbox" name="season" id="{{this.seas}}" value="{{this.seas}}" {{#if this.checked}} checked {{/if}}>
+        <label for="{{this.seas}}" class="label-cat label">{{this.seas}}</label></div>
+        {{/each}}
     </fieldset>
-    <button class="button-primary add-category-btn">Save</button>
+    <button class="save-button">Save</button>
   </form>
-
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/js/ingredientsHandler.js"></script>
-  <script src="/js/methodsHandler.js"></script>

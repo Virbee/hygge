@@ -44,3 +44,45 @@
   border-top:1px solid;
   border-bottom: 1px solid;
 }
+
+.add-items {
+  display:flex;
+  flex-direction: row;
+}
+
+.button {
+  margin:0;
+  background-color:tan;
+  color : white;
+  border-radius:6px;
+  padding: 0 5px;
+}
+
+.button p:hover {
+  color:black;
+}
+
+
+/* EDIT */
+
+#edit-img{
+  height:80px;
+  margin-left:5px;
+}
+
+.input-text{
+  width: 80%;
+}
+
+.edit-logo{
+  max-height:10px;
+}
+
+.save-button{
+  background-color: tan;
+  font-size:1em;
+  color: white;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}

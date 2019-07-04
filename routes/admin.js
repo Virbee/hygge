@@ -4,6 +4,16 @@ const Recipe = require("../models/Recipe");
 const Picture = require("../models/Picture");
 const Moto = require("../models/Moto");
 
+const categories = [
+  "breakfast",
+  "desert",
+  "dish",
+  "drink",
+  "starter",
+  "teatime"
+];
+const seasons = ["Spring", "Summer", "Fall", "Winter"];
+
 //////////MANAGE PAGE/////////
 router.get(
   ["/manage/Recipe", "/manage/Picture", "/manage/Moto"],
@@ -56,7 +66,7 @@ router.get(["/add/Recipe", "/add/Picture", "/add/Moto"], (req, res) => {
   const urlSplit = url.split("/");
   const mod = urlSplit[2];
   if (mod == "Recipe") {
-    res.render("add_recipe");
+    res.render("add_recipe", { scripts: ["form-recipe.js"] });
   } else if (mod == "Picture") {
     res.render("add_picture");
   } else {
@@ -101,10 +111,21 @@ router.post(["/add/Recipe", "/add/Picture", "/add/Moto"], (req, res) => {
 ///////////EDIT////////////
 
 router.get("/edit/Recipe/:id", (req, res) => {
-  Recipe.findById(req.params.id)
-  .then(recipe =>res.render("edit_recipe", {recipe}))
-  .catch(err=> console.log(err))
-  ;
+  Recipe.findById(req.params.id).then(recipe => {
+    const checkedCat = categories.map(cat => {
+      return { cat, checked: recipe.category.indexOf(cat) >= 0 };
+    });
+    const checkedSeason = seasons.map(seas => {
+      return { seas, checked: recipe.season.indexOf(seas) >= 0 };
+    });
+    res
+      .render("edit_recipe", {
+        recipe,
+        category: checkedCat,
+        season: checkedSeason
+      })
+      .catch(err => console.log(err));
+  });
 });
 
 module.exports = router;

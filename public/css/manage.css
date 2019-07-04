@@ -47,3 +47,8 @@
 .table-division {
   border: 1px solid;
 }
+
+.table-division a {
+  text-decoration: none;
+  color: black;
+}
