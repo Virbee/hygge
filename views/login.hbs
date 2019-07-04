@@ -1,22 +1,22 @@
-<div >
-  <div >
-    <h1>Enjoy yourself on Hygge !</h1>
+<section class="manage-container">
+  <div>
+    <h1>Enjoy yourself on Hy·gge !</h1>
   </div>
+  <div class="auth-form">
     <form action="/login" method="POST" id="form_user">
-      <div>
+      <div class="input">
         <label for="email">Email</label>
         <input type="email" name="email" placeholder="albert.biceps@gmail.com" required>
       </div>
-      <div>
+      <div class="input">
         <label for="password">Password</label>
         <input type="password" name="password" placeholder="••••••" required>
-      </div>
+      </div class="input">
       {{#if errorMessage }}
-   <div class="error-message">{{ errorMessage }}</div>
-   {{/if}}
-      <button >Connect to Account</button>
+      <div class="error-message">{{ errorMessage }}</div>
+      {{/if}}
+      <button class="btn">Connect to Account</button>
     </form>
-
-    
     <p>Don't have an account yet ? <a href="/signup">Sign Up</a></p>
-</div>
+  </div>
+</section>

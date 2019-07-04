@@ -36,4 +36,35 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+router.post("/login", (req, res) => {
+  const user = req.body;
+  User.findOne({ email: user.email })
+    .then(dbRes => {
+      if (!dbRes) {
+        return res.render("login", { errorMessage: "Bad mail or password" });
+      }
+      if (bcrypt.compareSync(user.password, dbRes.password)) {
+        req.session.currentUser = dbRes;
+        if (req.session.currentUser.admin) {
+          return res.redirect("/manage/Recipe");
+        } else {
+          return res.redirect("/journal");
+        }
+      } else {
+        return res.render("login", { errorMessage: "Bad mail or password" });
+      }
+    })
+    .catch(err => console.log(err));
+});
+
+///////////////LOG OUT/////////////////
+///////////////////////////////////////
+
+router.get("/logout", (req, res, next) => {
+  req.session.destroy(err => {
+    console.log("SESSION TERMINATED");
+    res.redirect("/");
+  });
+});
+
 module.exports = router;
