@@ -29,6 +29,11 @@
   margin: 5px 0px;
   color: #3a3b3d;
 }
+#logo-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
 #connect {
   margin: 20px;
   text-align: center;
@@ -37,15 +42,23 @@
 #connect-button {
   font-size: 0.8em;
   padding: 0.8em;
-  border: none;
-  border-radius: 6px;
-  box-shadow: 1px 1px 5px 2px grey;
+  font-size: 1em;
+  border-bottom: 1px solid black;
+  text-decoration: none;
+  color: black;
+}
+
+#signup-button {
+  font-size: 0.8em;
+  padding: 0.8em;
+  font-size: 1em;
   text-decoration: none;
   color: black;
 }
 
 #logo {
   max-height: 40px;
+  margin-right: 10px;
 }
 
 .footer {
@@ -73,4 +86,15 @@
   margin: 0;
   color: white;
   background-color: #3a3b3d;
+}
+#menu-admin {
+  display: flex;
+  flex-direction: column;
+  margin: 2em;
+}
+
+#menu-admin a {
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid black;
 }

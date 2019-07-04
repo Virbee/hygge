@@ -43,7 +43,7 @@
 }
 
 .home-pict span {
-  padding: 0.25em;
+  padding: 0.5em;
   color: #555;
   background-color: rgba(255, 255, 255, 0.7);
   height: 80%;
@@ -60,4 +60,12 @@
 
 .home-pict li {
   text-align: start;
+}
+
+.home-pict ul,
+ol {
+  list-style-type: none;
+}
+.home-list {
+  align-self: center;
 }

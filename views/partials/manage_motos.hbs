@@ -1,5 +1,6 @@
-  {{#if motos}}
-<h1>Manage Sentences</h1>
+<section class="manage-container">
+  {{#if sentences}}
+  <h1>Manage Sentences</h1>
   <div id="search-add">
     <label for="search-bar">Search : </label>
     <input type="text" id="search-bar" sentence="sentence" required minlength="4" maxlength="40" size="40">
@@ -23,7 +24,7 @@
         {{#each sentences}}
         <tr class="table-row">
           <td class="table-division">
-            <div>{{this.Sentence}}</div>
+            <div>{{this.sentence}}</div>
           </td>
           <td class="table-division"><a href="/product-edit/{{this._id}}" class="fa fa-edit table-icon"><img
                 alt="edit logo" src="/media/edit-logo.png" id="edit-logo"></a>
@@ -34,5 +35,6 @@
       </tbody>
     </table>
   </div>
+</section>
 
-  {{/if}}
+{{/if}}
