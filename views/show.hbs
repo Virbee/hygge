@@ -6,8 +6,12 @@
   </div>
   {{/if}}
   {{#unless user.admin}}
-  <div class="admin"><img class="like" alt=" coeur logo" src="/media/logo-coeur.png" id="click-logo">
-    <img class="like hidden" alt=" coeur logo" src="/media/logo-coeur-rouge.png" id="clicked-logo">
+  <div class="admin" id="{{recipe._id}}">
+    {{#if isFav}}
+    <img class="like" alt=" coeur logo" src="/media/logo-coeur-rouge.png" id="clicked-logo">
+    {{else}}
+    <img class="like" alt=" coeur logo" src="/media/logo-coeur.png" id="click-logo">
+    {{/if}}
   </div>
   {{/unless}}
   <div class="show-description">

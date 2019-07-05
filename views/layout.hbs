@@ -7,9 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>hygge</title>
   <link rel="stylesheet" href="/css/main.css">
-  {{#if axios}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-  {{/if}}
   {{#each scripts}}
   <script type="module" src="/js/{{this}}"></script>
   {{/each}}
@@ -23,5 +20,6 @@
   </div>
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
 
 </html>

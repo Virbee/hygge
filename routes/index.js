@@ -31,6 +31,7 @@ function chooseRandom(items) {
 
 ///////AFFICHAGE DYNAMIQUE//////////
 router.get("/", (req, res) => {
+  //insertData(recipes, sentences, pictures, users);
   res.render("home");
 });
 
@@ -54,12 +55,44 @@ router.get("/journal", ensureAuth, (req, res) => {
 });
 
 router.get("/show/:id", (req, res) => {
+  var favoritesRecipes = req.session.currentUser.id_recipes;
+  var isFav = false;
   Recipe.findById(req.params.id)
     .then(recipe => {
-      console.log(recipe);
-      res.render("show", { recipe, scripts: ["show-recipe.js"] });
+      if (favoritesRecipes.includes(req.params.id)) {
+        isFav = true;
+      }
+      console.log(isFav);
+      res.render("show", { recipe, scripts: ["show-recipe.js"], isFav });
     })
     .catch(err => console.log(err));
+});
+
+///////////ADD FAVORITE//////////
+
+router.post("/like", (req, res) => {
+  const { id_recipes } = req.body;
+  console.log(req.body);
+  User.updateOne(
+    { _id: req.session.currentUser._id },
+    { $addToSet: { id_recipes } }
+  )
+    .then(upd => {
+      req.session.currentUser.id_recipes = id_recipes;
+      res.send();
+    })
+    .catch();
+});
+
+/////////DELETE FAVORITE/////////
+router.post("/dislike", (req, res) => {
+  const { id_recipes } = req.body;
+  User.updateOne(
+    { _id: req.session.currentUser._id },
+    { $deleteToSet: { id_recipes } }
+  )
+    .then(res.send())
+    .catch();
 });
 
 ///////////INSERT DATA///////////
@@ -89,5 +122,4 @@ function insertData(recipes, sentences, pictures, users) {
     .catch(err => console.log(err));
 }
 
-//insertData(recipes, sentences, pictures, users);
 module.exports = router;
