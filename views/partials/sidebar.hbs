@@ -26,6 +26,14 @@
   </div>
   {{/if}}
 
+
+  
+  {{#unless user.admin}}
+<div id="menu-admin">
+    <a href="/favorite/Recipe">Recipes </a>
+   
+  {{/unless}}
+
   <div class="footer">
     {{#unless isLoggedIn}}
     <div id="connect"><a id="connect-button" href="/login">Login</a>
