@@ -26,6 +26,19 @@
   </div>
   {{/if}}
 
+  {{#unless user.admin}}
+  <div id="menu-admin" class="hidden">
+    <a href="/favorite/Recipe"><img id ="logo" src="/media/logo-coeur.png">Recipes </a>
+    </div>
+   {{/unless}}
+
+
+  {{#if isLoggedIn}}
+  <div id="menu-admin">
+    <a href="/favorite/Recipe"><img id ="logo" src="/media/logo-coeur.png">Recipes </a> 
+    </div>
+  {{/if}}
+
   <div class="footer">
     {{#unless isLoggedIn}}
     <div id="connect"><a id="connect-button" href="/login">Login</a>
