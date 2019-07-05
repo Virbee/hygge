@@ -130,6 +130,7 @@ router.post(
     const urlSplit = url.split("/");
     const mod = urlSplit[2];
     if (mod == "Recipe") {
+      console.log("ici dans recipe");
       let url = req.file.secure_url;
       const {
         name,
@@ -153,6 +154,7 @@ router.post(
         .then(res.redirect("/manage/Recipe"))
         .catch(err => console.log(err));
     } else if (mod == "Picture") {
+      console.log("je suis passé par picture");
       let url = req.file.secure_url;
       Picture.create({
         img: url
@@ -167,6 +169,7 @@ router.post(
         });
       return;
     } else {
+      console.log("je suis dans moto");
       const { sentence } = req.body;
       Moto.create({
         sentence
