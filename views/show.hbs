@@ -5,6 +5,11 @@
     <a href="/delete/Recipe/{{recipe._id}}"><img alt="delete logo" src="/media/delete-logo.png" id="delete-logo"></a>
   </div>
   {{/if}}
+  {{#unless user.admin}}
+  <div class="admin"><img class="like" alt=" coeur logo" src="/media/logo-coeur.png" id="click-logo">
+    <img class="like hidden" alt=" coeur logo" src="/media/logo-coeur-rouge.png" id="clicked-logo">
+  </div>
+  {{/unless}}
   <div class="show-description">
     <h1 class="show-recipe-title">{{recipe.name}}</h1>
     <div class="line"></div>

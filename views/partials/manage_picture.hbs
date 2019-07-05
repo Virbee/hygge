@@ -1,11 +1,11 @@
+{{#if user.admin}}
 <section class="manage-container">
   {{#if pictures}}
   <h1>Manage pictures</h1>
   <div id="search-add">
     <label for="search-bar">Search : </label>
     <input type="img" id="search-bar" img="img" required minlength="4" maxlength="40" size="40">
-    <p>or</p>
-    <a href="/add/Picture" id="add-button">
+    <a href="/add/Picture" class="add-button">
       +
     </a>
   </div>
@@ -14,7 +14,8 @@
     <table class="product-manage-table">
       <thead>
         <tr class="table-row">
-          <th colspan="1" class="table-head">Picture</th>
+          <th colspan="1" class="table-head">Image</th>
+          <th colspan="1" class="table-head">URL</th>
           <th colspan="1" class="table-head"> </a> Edit</th>
           <th colspan="1" class="table-head">Delete</th>
         </tr>
@@ -23,6 +24,7 @@
       <tbody>
         {{#each pictures}}
         <tr class="table-row">
+          <td class="table-division"><img class="manage-pic" alt="pic" src={{this.img}}></td>
           <td class="table-division">
             <div>{{this.img}}</div>
           </td>
@@ -36,4 +38,5 @@
     </table>
   </div>
 
+  {{/if}}
   {{/if}}

@@ -57,7 +57,7 @@ router.get("/show/:id", (req, res) => {
   Recipe.findById(req.params.id)
     .then(recipe => {
       console.log(recipe);
-      res.render("show", { recipe });
+      res.render("show", { recipe, scripts: ["show-recipe.js"] });
     })
     .catch(err => console.log(err));
 });

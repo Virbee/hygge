@@ -1,7 +1,11 @@
+{{#if user.admin}}
 <div class="add-big-container">
-  <form method="post" action="/add/Recipe" class="add-recipe-form">
+  <form method="post" action="/edit/Recipe/{{recipe._id}}" class="edit-recipe-form" enctype="multipart/form-data">
 
-    <h1 class="form-title">Edit the recipe</h1>
+    <div class="form-title">
+      <h1>Edit the recipe</h1>
+      <button class="save-button">Save</button>
+    </div>
 
     {{!------------------------------- name ----------------------------------}}
     <div class="form-item-wrapper">
@@ -14,7 +18,8 @@
     <div class="form-item-wrapper">
       <img alt="edit-logo" src="/media/edit-logo.png" class="edit-logo" id="edit-description">
       <label for="recipe-description" class="label-description label">Description</label>
-      <input type="text" class="input-text input" name="description" id="recipe-description" value="{{recipe.description}}" required>
+      <input type="text" class="input-text input" name="description" id="recipe-description"
+        value="{{recipe.description}}" required>
     </div>
 
     {{!----------------------------- preparation time ------------------------------}}
@@ -26,44 +31,46 @@
 
     {{!------------------------------- img ----------------------------------}}
     <div class="form-item-wrapper">
-      <div><img alt="edit-logo" src="/media/edit-logo.png" class="edit-logo" id="edit-img"><img src="{{recipe.img}}" id="edit-img"></div>
+      <div><img alt="edit-logo" src="/media/edit-logo.png" class="edit-logo" id="edit-img"><img src="{{recipe.img}}"
+          id="edit-img"></div>
       <label for="recipe-img" class="label-image label">Image</label>
-      <input type="file" class="input-img input" name="img" value="{{recipe.img}}" required>
+      <input type="file" class="input-img input" name="img">
     </div>
 
-      {{!------------------------------- ingredients ----------------------------------}}
-    
+    {{!------------------------------- ingredients ----------------------------------}}
+
     <div class="form-item-wrapper items-input">
       <div>
-      <label for="ingredient" class="label-ingredient label">Ingredients</label>
-      <input name="ingredient" id="ingredient" class="input-text input" placeholder="120g of butter">
-      <button id="new-ingredient">+</button>
+        <label for="edited-ingredient" class="label-ingredient label">Ingredients</label>
+        <input name="ingredient" id="edited-ingredient" class="input-text input" placeholder="120g of butter">
+        <a class="add-button" id="edit-btn-ingredient">+</a>
       </div>
 
-    <fieldset id="visible-checkbox">
-      {{#each recipe.ingredients}}
+      <fieldset id="edit-ing-checkbox">
+        {{#each recipe.ingredients}}
         <div>
-        <input type="checkbox" name="ingredients" id="ingredient" value="{{this}}" checked>
-        <label for="ingredient" class="label-cat label">{{this}}</label>
+          <input type="checkbox" name="ingredients" id="ingredient" value="{{this}}" checked>
+          <label for="ingredient" class="label-cat label">{{this}}</label>
         </div>
-      {{/each}}
-    </fieldset>
+        {{/each}}
+      </fieldset>
     </div>
     {{!------------------------------- instructions ----------------------------------}}
     <div class="form-item-wrapper items-input">
-      <div id="visible-checkbox"> 
+      <div>
         <label for="method" class="label-instructions label">Methods</label>
-        <input type="text" name="new-instruction" class="input-text input" id="method" placeholder="bake 30 minutes in the oven">
-        <button id="new-method">+</button>
+        <input type="text" name="instruction" class="input-text input" id="edited-instruction"
+          placeholder="bake 30 minutes in the oven">
+        <a class="add-button" id="edit-btn-method">+</a>
       </div>
-     <fieldset id="visible-checkbox">
-       {{#each recipe.instructions}}
+      <fieldset id="edit-ins-checkbox">
+        {{#each recipe.instructions}}
         <div>
-        <input type="checkbox" name="instructions" id="instruction" value="{{this}}" checked>
-        <label for="instruction" class="label-cat label">{{this}}</label>
+          <input type="checkbox" name="instructions" id="instruction" value="{{this}}" checked>
+          <label for="instruction" class="label-cat label">{{this}}</label>
         </div>
-      {{/each}}
-     </fieldset>
+        {{/each}}
+      </fieldset>
     </div>
 
     {{!------------------------------- category ----------------------------------}}
@@ -71,9 +78,10 @@
       <legend>Category</legend>
       {{#each category}}
       <div>
-        <input type="checkbox" name="category" id="{{this.cat}}" value="{{this.cat}}" {{#if this.checked}} checked {{/if}}>
+        <input type="checkbox" name="category" id="{{this.cat}}" value="{{this.cat}}" {{#if this.checked}} checked
+          {{/if}}>
         <label for="{{this.cat}}" class="label-cat label">{{this.cat}}</label>
-      {{/each}}
+        {{/each}}
     </fieldset>
 
     {{!---------------------------- seasons ---------------------------------------}}
@@ -81,9 +89,11 @@
     <fieldset class="form-item-wrapper">
       <legend>Season</legend>
       {{#each season}}
-      <div><input type="checkbox" name="season" id="{{this.seas}}" value="{{this.seas}}" {{#if this.checked}} checked {{/if}}>
+      <div><input type="checkbox" name="season" id="{{this.seas}}" value="{{this.seas}}" {{#if this.checked}} checked
+          {{/if}}>
         <label for="{{this.seas}}" class="label-cat label">{{this.seas}}</label></div>
-        {{/each}}
+      {{/each}}
     </fieldset>
-    <button class="save-button">Save</button>
   </form>
+
+  {{/if}}
