@@ -1,11 +1,11 @@
+{{#if user.admin}}
 <section class="manage-container">
   {{#if recipes}}
   <h1>Manage Recipes</h1>
   <div id="search-add">
     <label for="search-bar">Search : </label>
     <input type="text" id="search-bar" name="name" required minlength="4" maxlength="40" size="40">
-    <p>or</p>
-    <a href="/add/Recipe" id="add-button">
+    <a href="/add/Recipe" class="add-button">
       +
     </a>
   </div>
@@ -35,5 +35,7 @@
       </tbody>
     </table>
   </div>
+  <script src="/js/search-recipe.js"></script>
 
+  {{/if}}
   {{/if}}

@@ -13,11 +13,8 @@
   "dependencies": {
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
-<<<<<<< HEAD
     "cloudinary": "^1.14.0",
-=======
     "connect-mongo": "^3.0.0",
->>>>>>> 00fb7835e0004db8b07b23d44ed3e960f4ae5b43
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",

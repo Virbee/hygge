@@ -1,3 +1,4 @@
+{{#if user.admin}}
 <section class="manage-container">
   {{#if sentences}}
   <h1>Manage Sentences</h1>
@@ -5,7 +6,7 @@
     <label for="search-bar">Search : </label>
     <input type="text" id="search-bar" sentence="sentence" required minlength="4" maxlength="40" size="40">
     <p>or</p>
-    <a href="/add/Moto" id="add-button">
+    <a href="/add/Moto" class="add-button">
       +
     </a>
   </div>
@@ -37,4 +38,5 @@
   </div>
 </section>
 
+{{/if}}
 {{/if}}

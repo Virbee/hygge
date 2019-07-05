@@ -4,6 +4,7 @@
 @import "./journal.css";
 @import "./show.css";
 @import "./manage.css";
+@import "./buttons.css";
 
 /*importer les differentes pages css*/
 body {

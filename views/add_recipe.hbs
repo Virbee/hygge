@@ -1,7 +1,12 @@
-<div class="add-big-container" method="post" action="/add/Recipe" enctype="multipart/form-data">
-  <form method="post" action="/add/Recipe" class="add-recipe-form">
+{{#if user.admin}}
+<div class="add-big-container">
+  <form method="post" action="/add/Recipe" class="add-recipe-form" enctype="multipart/form-data">
 
-    <h1 class="form-title">Add a recipe</h1>
+    <div class="form-title">
+      <h1>Add a recipe</h1>
+      <button class="save-button">Save</button>
+    </div>
+
 
     {{!------------------------------- name ----------------------------------}}
     <div class="form-item-wrapper">
@@ -12,48 +17,50 @@
     {{!------------------------------- description ----------------------------------}}
     <div class="form-item-wrapper">
       <label for="recipe-description" class="label-description label">Description</label>
-      <input type="text" class="input-text input" name="description" id="recipe-description" placeholder="share it with your friends" required>
+      <input type="text" class="input-text input" name="description" id="recipe-description"
+        placeholder="share it with your friends" required>
     </div>
 
     {{!----------------------------- preparation time ------------------------------}}
     <div class="form-item-wrapper">
       <label for="preparation" class="label-prep label">Preparation time</label>
-      <input type="number" class="input-number input" placeholder="less than an hour preparation" name="preparation" required>
+      <input type="number" class="input-number input" placeholder="less than an hour preparation" name="preparation"
+        required>
     </div>
 
     {{!------------------------------- img ----------------------------------}}
     <div class="form-item-wrapper">
       <label for="recipe-img" class="label-image label">Image</label>
-      <input type="file" class="input-img input" name="img" required>
+      <input type="file" class="input-img input" name="img">
     </div>
 
-      {{!------------------------------- ingredients ----------------------------------}}
-    
+    {{!------------------------------- ingredients ----------------------------------}}
+
     <div class="form-item-wrapper items-input">
       <div class="add-items">
-      <label for="ingredient" class="label-ingredient label">Ingredients</label>
-      <input name="ingredient" id="ingredient" class="input-text input" placeholder="120g of butter">
-      <p class="button" id="new-ingredient">+</p>
+        <label for="ingredient" class="label-ingredient label">Ingredients</label>
+        <input name="ingredient" id="ingredient" placeholder="120g of butter">
+        <a class="add-button" id="new-ingredient">+</a>
       </div>
-    
 
-    <div id="ingredients-list">
-    </div>
 
-    <fieldset id="hidden-ingredients">
-    </fieldset>
+      <div id="ingredients-list">
+      </div>
+
+      <fieldset id="hidden-ingredients">
+      </fieldset>
     </div>
     {{!------------------------------- instructions ----------------------------------}}
     <div class="form-item-wrapper items-input">
       <div class="add-items">
         <label for="method" class="label-instructions label">Methods</label>
         <input type="text" name="new-instruction" id="method" placeholder="bake 30 minutes in the oven">
-        <p class="button" id="new-method">+</p>
+        <a class="add-button" id="new-method">+</a>
       </div>
       <div id="methods-list">
       </div>
-     <fieldset id="hidden-methods">
-     </fieldset>
+      <fieldset id="hidden-methods">
+      </fieldset>
     </div>
 
     {{!------------------------------- category ----------------------------------}}
@@ -90,6 +97,6 @@
       <div><input type="checkbox" class="input-text input" name="season" id="Winter" value="Winter">
         <label for="Winter" class="label-cat label">Winter</label></div>
     </fieldset>
-    <button class="button-primary add-category-btn">Save</button>
-    </div>
-  </form>
+</div>
+</form>
+{{/if}}

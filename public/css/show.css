@@ -9,10 +9,10 @@
   padding: 30px 20px 0 0;
   align-items: center;
 }
-.table-division a{ 
+.table-division a {
   flex-direction: row;
   justify-content: flex-end;
-  margin:.8rem;
+  margin: 0.8rem;
 }
 .show-description {
   width: 80%;
@@ -27,18 +27,18 @@
 }
 
 .line {
-  background:#cdcdcd;
+  background: #cdcdcd;
   height: 2px;
-  width:100%;
+  width: 100%;
   margin: 1rem 0 1rem 0;
 }
 .show-description h3 {
   font-size: 1.2rem;
   margin: 0;
- color:#999999;
- font-style: italic;
- text-align: center;
- font-weight: lighter;
+  color: #999999;
+  font-style: italic;
+  text-align: center;
+  font-weight: lighter;
 }
 .show-img {
   width: 50%;
@@ -46,53 +46,48 @@
 
 .show-prep {
   font-size: 1.2rem;
-  margin-top: .8rem;
+  margin-top: 0.8rem;
   margin-bottom: 2.5rem;
 }
 
 .show-img img {
-  width:100%;
+  width: 100%;
   /* margin: 50px 80px; */
 }
 
 .show-img p {
   margin: 0;
-  font-size:1.5vw;
- 
+  font-size: 1.5vw;
 }
 
-.show-ingredients h3{
+.show-ingredients h3 {
   font-size: 1.5em;
   text-decoration: underline;
   text-align: center;
   margin-bottom: 1.5rem;
-
-
 }
-.show-ingredients{
+.show-ingredients {
   font-size: 1.5vw;
   /* position:absolute; */
   text-align: left;
-  margin-bottom:3rem;
+  margin-bottom: 3rem;
 }
 ul.ingredients-list {
   list-style-type: none;
- }
-
-li.show-ingredient{
-  text-align: center;
-  margin-bottom: .3rem;
 }
 
+li.show-ingredient {
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
 
-.show-methods h3{
+.show-methods h3 {
   font-size: 1.5em;
   text-decoration: underline;
   text-align: center;
   margin-bottom: 1.5rem;
-
 }
-.show-methods{
+.show-methods {
   font-size: 1.5vw;
   /* position:absolute; */
   bottom: 50px;
@@ -103,16 +98,19 @@ li.show-ingredient{
   margin-bottom: 3.5rem;
 }
 .methods-list {
-  margin:0 0 0 20px;
- 
+  margin: 0 0 0 20px;
 }
 
 li.methods-instruction {
   list-style: circle inside;
   text-align: center;
-  margin-bottom: .3rem;
+  margin-bottom: 0.3rem;
 }
 li.methods-instruction span {
   position: relative;
   left: -16px;
+}
+
+.like {
+  max-width: 20px;
 }

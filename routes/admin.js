@@ -3,7 +3,10 @@ const router = new express.Router();
 const Recipe = require("../models/Recipe");
 const Picture = require("../models/Picture");
 const Moto = require("../models/Moto");
-const uploader = require("./../config/cloudinary");
+const uploader = require("../config/cloudinary");
+
+const autRoutes = require("../routes/auth");
+router.use(autRoutes);
 
 const categories = [
   "breakfast",
@@ -15,57 +18,10 @@ const categories = [
 ];
 const seasons = ["Spring", "Summer", "Fall", "Winter"];
 
-//////////cloudinary///////////
-// router.post("/add_picture", uploader.single("img"), (req, res) => {
-//   if (req.file && req.file.secure_url) {
-//     console.log(req.file.secure_url);
-//     let url = req.file.secure_url;
-//     Picture.create({
-//       img: url
-//     })
-//       .then(dbRes => {
-//         console.log("img upload ok");
-//         res.redirect("/manage/Picture");
-//       })
-//       .catch(dbErr => {
-//         console.log("img upload not ok");
-//         res.redirect("/manage/Picture");
-//       });
-//     return;
-//   }
-
-//   Picture.create({})
-//     .then(dbRes => {
-//       console.log("img create default ok");
-//       console.log(dbRes);
-//     })
-//     .catch(dbErr => {
-//       console.log("img create default not ok");
-//       console.log(dbErr);
-//     });
-// });
-// router.post("/add_recipe", uploader.single("img"), (req, res) => {
-//   if (req.file && req.file.secure_url) {
-//     console.log(req.file.secure_url);
-//     let url = req.file.secure_url;
-//     Picture.create({
-//       img: url
-//     })
-//       .then(dbRes => {
-//         console.log("img upload ok");
-//         res.redirect("/manage/Recipe");
-//       })
-//       .catch(dbErr => {
-//         console.log("img upload not ok");
-//         res.redirect("/manage/Recipe");
-//       });
-//     return;
-//   }
-// });
 //////////MANAGE PAGE/////////
 router.get(
   ["/manage/Recipe", "/manage/Picture", "/manage/Moto"],
-  (req, res) => {
+  (req, res, next) => {
     const url = req.url;
     const urlSplit = url.split("/");
     const mod = urlSplit[2];
@@ -180,21 +136,51 @@ router.post(
 ///////////EDIT////////////
 
 router.get("/edit/Recipe/:id", (req, res) => {
-  Recipe.findById(req.params.id).then(recipe => {
-    const checkedCat = categories.map(cat => {
-      return { cat, checked: recipe.category.indexOf(cat) >= 0 };
-    });
-    const checkedSeason = seasons.map(seas => {
-      return { seas, checked: recipe.season.indexOf(seas) >= 0 };
-    });
-    res
-      .render("edit_recipe", {
+  Recipe.findById(req.params.id)
+    .then(recipe => {
+      const checkedCat = categories.map(cat => {
+        return { cat, checked: recipe.category.indexOf(cat) >= 0 };
+      });
+      const checkedSeason = seasons.map(seas => {
+        return { seas, checked: recipe.season.indexOf(seas) >= 0 };
+      });
+      res.render("edit_recipe", {
         recipe,
         category: checkedCat,
-        season: checkedSeason
-      })
-      .catch(err => console.log(err));
-  });
+        season: checkedSeason,
+        scripts: ["edit-form.js"]
+      });
+    })
+    .catch(err => console.log(err));
+});
+
+router.post("/edit/Recipe/:id", uploader.single("img"), (req, res) => {
+  let url = req.file.secure_url;
+  const {
+    name,
+    description,
+    preparation,
+    ingredients,
+    instructions,
+    category,
+    season
+  } = req.body;
+  console.log(req.body);
+  Recipe.updateOne(
+    { _id: req.params.id },
+    {
+      name,
+      img: url,
+      description,
+      preparation,
+      ingredients,
+      instructions,
+      category,
+      season
+    }
+  )
+    .then(recipe => res.redirect("/manage/Recipe"))
+    .catch(err => console.log(err));
 });
 
 module.exports = router;
