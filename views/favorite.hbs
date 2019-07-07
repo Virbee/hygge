@@ -1,11 +1,11 @@
 <section class="manage-container">
     <h1>Favorites</h1>
     <div id="favorites">
-        <ul>{{#each recipes}}
-            <li>{{this.img}}></li>
+        {{#each recipes}}
+        <ul class="favorite-div">
+            <li><img src="{{this.img}}" class="favorite-img"></li>
+            <li><a href="/show/{{this._id}}" class="favorite-link">{{this.name}}</a></li>
         </ul>
-
-
+        {{/each}}
     </div>
-
 </section>

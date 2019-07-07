@@ -100,7 +100,7 @@ router.post("/unlike", (req, res) => {
 router.get("/favorite/Recipe", (req, res) => {
   Recipe.find({ _id: { $in: req.session.currentUser.id_recipes } }).then(
     recipes => {
-      res.send(recipes.map(r => r.name).join("\n<br>\n"));
+      res.render("favorite", { recipes });
     }
   );
 });

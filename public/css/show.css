@@ -114,3 +114,26 @@ li.methods-instruction span {
 .like {
   max-width: 20px;
 }
+
+/* Favorites */
+
+#favorites {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 1em;
+}
+
+.favorite-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+}
+.favorite-img {
+  max-height: 100px;
+}
+
+.favorite-link {
+  text-decoration: none;
+  color: black;
+}
