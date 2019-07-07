@@ -7,11 +7,9 @@
   {{/if}}
   {{#unless user.admin}}
   <div class="admin" id="{{recipe._id}}">
-    {{#if isFav}}
-    <img class="like" alt=" coeur logo" src="/media/logo-coeur-rouge.png" id="clicked-logo">
-    {{else}}
-    <img class="like" alt=" coeur logo" src="/media/logo-coeur.png" id="click-logo">
-    {{/if}}
+    <img class="like {{#unless isFav}} hidden {{/unless}}" alt=" coeur logo" src="/media/logo-coeur-rouge.png"
+      id="clicked-logo">
+    <img class="like {{#if isFav}} hidden {{/if}}" alt=" coeur logo" src="/media/logo-coeur.png" id="click-logo">
   </div>
   {{/unless}}
   <div class="show-description">

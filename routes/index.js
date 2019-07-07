@@ -56,13 +56,9 @@ router.get("/journal", ensureAuth, (req, res) => {
 
 router.get("/show/:id", (req, res) => {
   var favoritesRecipes = req.session.currentUser.id_recipes;
-  var isFav = false;
   Recipe.findById(req.params.id)
     .then(recipe => {
-      if (favoritesRecipes.includes(req.params.id)) {
-        isFav = true;
-      }
-      console.log(isFav);
+      const isFav = favoritesRecipes.includes(req.params.id);
       res.render("show", { recipe, scripts: ["show-recipe.js"], isFav });
     })
     .catch(err => console.log(err));
@@ -71,28 +67,42 @@ router.get("/show/:id", (req, res) => {
 ///////////ADD FAVORITE//////////
 
 router.post("/like", (req, res) => {
-  const { id_recipes } = req.body;
+  const { id_recipe } = req.body;
   console.log(req.body);
   User.updateOne(
+    ////////////////////// l'id de la recette est ajoutée aux favoris de l'utilisateur....
     { _id: req.session.currentUser._id },
-    { $addToSet: { id_recipes } }
+    { $addToSet: { id_recipes: id_recipe } }
   )
     .then(upd => {
-      req.session.currentUser.id_recipes = id_recipes;
-      res.send();
+      req.session.currentUser.id_recipes.push(id_recipe); //// mais il faut aussi l'ajouter au currentUser de la session
+      res.send(); /// pour refléter le changement dans la session
     })
     .catch();
 });
 
 /////////DELETE FAVORITE/////////
-router.post("/dislike", (req, res) => {
-  const { id_recipes } = req.body;
+router.post("/unlike", (req, res) => {
+  const { id_recipe } = req.body;
   User.updateOne(
     { _id: req.session.currentUser._id },
-    { $deleteToSet: { id_recipes } }
+    { $pull: { id_recipes: id_recipe } }
   )
-    .then(res.send())
+    .then(upd => {
+      const i = req.session.currentUser.id_recipes.indexOf(id_recipe);
+      req.session.currentUser.id_recipes.splice(i, 1);
+      res.send();
+    })
     .catch();
+});
+
+//////////////DISPLAY FAVORITES///////
+router.get("/favorite/Recipe", (req, res) => {
+  Recipe.find({ _id: { $in: req.session.currentUser.id_recipes } }).then(
+    recipes => {
+      res.send(recipes.map(r => r.name).join("\n<br>\n"));
+    }
+  );
 });
 
 ///////////INSERT DATA///////////

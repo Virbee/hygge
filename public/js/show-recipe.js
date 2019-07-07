@@ -10,9 +10,9 @@ notLike.onclick = function(evt) {
   like.removeAttribute("class", "hidden");
   like.setAttribute("class", "like");
   const div = notLike.parentElement;
-  const id_recipes = div.id;
+  const id_recipe = div.id;
   axios
-    .post("/like", { id_recipes })
+    .post("/like", { id_recipe })
     .then(res => console.log(res))
     .catch(err => console.log(err));
 };
@@ -22,6 +22,6 @@ like.onclick = function(evt) {
   notLike.removeAttribute("class", "hidden");
   notLike.setAttribute("class", "like");
   const div = like.parentElement;
-  const id = div.id;
-  axios.post("/dislike", { id }.then().catch());
+  const id_recipe = div.id;
+  axios.post("/unlike", { id_recipe });
 };

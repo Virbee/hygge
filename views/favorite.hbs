@@ -1,7 +1,11 @@
 <section class="manage-container">
-<h1>Favorites</h1>
-<ul>
-    <li>{{favorites.recipe}}</li>
-    <a href ={{"show/"{{this.id}}}}></a>   
-</ul>
+    <h1>Favorites</h1>
+    <div id="favorites">
+        <ul>{{#each recipes}}
+            <li>{{this.img}}></li>
+        </ul>
+
+
+    </div>
+
 </section>
